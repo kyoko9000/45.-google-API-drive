@@ -9,20 +9,20 @@ service = service()
 '''  1..............for upload file to google drive................
 source code: https://developers.google.com/drive/api/v3/manage-uploads
 '''
-# folder_id = ["1ZfpiRFSqwF0M7jhLWjUv8rUoPRZsOUCR"]
-# file_names = ["1.jpeg", "2.jpeg"]
-# for file_name in file_names:
-#     file_metadata = {
-#         "name": file_name,
-#         "parents": folder_id
-#     }
-#     media = MediaFileUpload("icons/{0}".format(file_name), resumable=True)
-#     send = service.files().create(
-#         body=file_metadata,
-#         media_body=media,
-#         fields="id, name"
-#     ).execute()
-#     print(' File ID: %s' % send.get('id'), "\n", 'File name: %s' % send.get('name'))
+folder_id = ["1ZfpiRFSqwF0M7jhLWjUv8rUoPRZsOUCR"]
+file_names = ["1.jpeg", "2.jpeg"]
+for file_name in file_names:
+    file_metadata = {
+        "name": file_name,
+        "parents": folder_id
+    }
+    media = MediaFileUpload("icons/{0}".format(file_name), resumable=True)
+    send = service.files().create(
+        body=file_metadata,
+        media_body=media,
+        fields="id, name"
+    ).execute()
+    print(' File ID: %s' % send.get('id'), "\n", 'File name: %s' % send.get('name'))
 
 
 '''  2................download files on google drive ....................
